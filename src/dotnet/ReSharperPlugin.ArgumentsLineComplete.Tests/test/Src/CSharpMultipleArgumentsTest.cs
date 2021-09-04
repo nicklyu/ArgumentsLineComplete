@@ -15,8 +15,9 @@ namespace ReSharperPlugin.ArgumentsLineComplete.Tests.test.Src
 
         protected override bool CheckAutomaticCompletionDefault() => true;
 
-        [Test]
-        public void TestBasicList1() => DoNamedTest();
+        [Test] public void TestBasicList1() => DoNamedTest();
+        [Test] public void TestBasicList2() => DoNamedTest();
+        [Test] public void TestBasicList3() => DoNamedTest();
     }
 
     [TestFixture]

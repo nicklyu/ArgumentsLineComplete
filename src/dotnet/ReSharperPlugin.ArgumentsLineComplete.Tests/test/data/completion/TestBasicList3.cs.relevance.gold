@@ -1,0 +1,139 @@
+﻿# 67 ITEMS #
+
++ arg2    int
+arg1, arg2, arg3
+arg1, arg2
+arg1    int
+arg3    int
+GetHashCode    int
+Int32.MaxValue    int
+Int32.MinValue    int
+Int32.Parse    int
+Test    void
+Test3    void
+Equals    bool
+GetType    Type
+MemberwiseClone    object
+ReferenceEquals    bool
+ToString    string
+arg1:
+arg2:
+arg3:
+arg4:
+async
+await
+base
+bool
+byte
+char
+checked
+decimal
+default
+delegate
+double
+false
+float
+from    Language-Integrated Query
+in
+int
+long
+nameof
+new
+nint
+nuint
+null
+object
+out
+ref
+sbyte
+short
+sizeof
+stackalloc
+static
+string
+this
+true
+typeof
+uint
+ulong
+unchecked
+ushort
+Foo
+Microsoft
+System
+ctx    Current file context
+hal    ASP.NET MVC Html.ActionLink
+nguid    Insert new GUID
+rta    ASP.NET Controller RedirectToAction
+ua    ASP.NET MVC Url.Action
+global
+# AUTOMATIC #
+# 67 ITEMS #
+
++ arg2    int
+arg1, arg2, arg3
+arg1, arg2
+arg1    int
+arg3    int
+GetHashCode    int
+Int32.MaxValue    int
+Int32.MinValue    int
+Int32.Parse    int
+Test    void
+Test3    void
+Equals    bool
+GetType    Type
+MemberwiseClone    object
+ReferenceEquals    bool
+ToString    string
+arg1:
+arg2:
+arg3:
+arg4:
+async
+await
+base
+bool
+byte
+char
+checked
+decimal
+default
+delegate
+double
+false
+float
+from    Language-Integrated Query
+in
+int
+long
+nameof
+new
+nint
+nuint
+null
+object
+out
+ref
+sbyte
+short
+sizeof
+stackalloc
+static
+string
+this
+true
+typeof
+uint
+ulong
+unchecked
+ushort
+Foo
+Microsoft
+System
+ctx    Current file context
+hal    ASP.NET MVC Html.ActionLink
+nguid    Insert new GUID
+rta    ASP.NET Controller RedirectToAction
+ua    ASP.NET MVC Url.Action
+global

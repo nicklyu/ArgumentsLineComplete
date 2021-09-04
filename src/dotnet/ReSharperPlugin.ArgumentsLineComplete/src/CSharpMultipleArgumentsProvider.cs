@@ -146,6 +146,7 @@ namespace ReSharperPlugin.ArgumentsLineComplete
                 if (elementParameters.Count - argumentIndex <= 1) continue;
 
                 var elements = TryGetTextElements(elementParameters);
+                if (elements == null) continue;
                 result.Add(elements);
             }
 
