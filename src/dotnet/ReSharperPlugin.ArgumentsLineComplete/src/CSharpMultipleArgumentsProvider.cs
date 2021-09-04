@@ -28,7 +28,7 @@ using JetBrains.ReSharper.Psi.Util;
 using JetBrains.TextControl;
 using JetBrains.Util;
 
-namespace ReSharperPlugin.SmartComplete
+namespace ReSharperPlugin.ArgumentsLineComplete
 {
     [Language(typeof(CSharpLanguage))]
     public class CSharpMultipleArgumentsProvider : CSharpItemsProviderBase<CSharpCodeCompletionContext>
@@ -160,7 +160,8 @@ namespace ReSharperPlugin.SmartComplete
                 {
                     var parameter = elementParameters[index + argumentIndex];
                     if (!(argumentNameToDeclaredElementMap.TryGetValue(parameter.ShortName, out var element)
-                        && IsParameterTypeSuitable(parameter.Type, element.GetDeclaredElement().Type(), element.GetSubstitution())))
+                          && element.GetDeclaredElement().Type() is { } declaredElementType
+                        && IsParameterTypeSuitable(parameter.Type, declaredElementType, element.GetSubstitution())))
                         return null;
                     
                     elements.Add(GetItemText(parameter, element));
@@ -203,7 +204,7 @@ namespace ReSharperPlugin.SmartComplete
             {
                 var invocationExpression = InvocationExpressionNavigator.GetByArgumentList(argumentList);
                 var invokedExpression = invocationExpression?.InvokedExpression.GetOperandThroughParenthesis() as IReferenceExpression;
-                if (invokedExpression?.ConditionalQualifier is IBaseExpression baseExpression) return null;
+                if (invokedExpression?.ConditionalQualifier is IBaseExpression) return null;
                 return invocationExpression != null ? FindNotMatchedParameters(invocationExpression, argumentIndex) : null;
             }
             
