@@ -25,6 +25,10 @@ namespace ReSharperPlugin.ArgumentsLineComplete.Tests.test.Src
         [Test] public void TestObjectInitializer2() => DoNamedTest();
         [Test] public void TestIndexer1() => DoNamedTest();
         [Test] public void TestIndexer2() => DoNamedTest();
+        [Test] public void TestBasicListWithModifiers1() => DoNamedTest();
+        [Test] public void TestBasicListWithModifiers2() => DoNamedTest();
+        [Test] public void TestBasicListWithModifiers3() => DoNamedTest();
+        [Test] public void TestBasicListWithModifiers4() => DoNamedTest();
     }
 
     [TestFixture]
