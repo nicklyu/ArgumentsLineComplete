@@ -5,14 +5,10 @@ plugins {
     id 'java'
     id 'org.jetbrains.kotlin.jvm' version '1.5.30'
     id 'org.jetbrains.intellij' version '1.1.4'     // https://github.com/JetBrains/gradle-intellij-plugin/releases
-    id 'com.jetbrains.rdgen' version '0.213.391'    // https://www.myget.org/feed/rd-snapshots/package/maven/com.jetbrains.rd/rd-gen
 }
 
 ext {
     isWindows = Os.isFamily(Os.FAMILY_WINDOWS)
-    rdLibDirectory = {
-        new File(intellij.getIdeaDependency(project).classes, "lib/rd")
-    }
 }
 
 repositories {
@@ -123,36 +119,6 @@ runIde {
 
     // gradle-intellij-plugin will download the default version of the JBR for the snapshot. Update if required
     // jbrVersion = "jbr_jcef-11_0_6b765.40" // https://confluence.jetbrains.com/display/JBR/Release+notes
-}
-
-rdgen {
-    def modelDir = new File(rootDir, "protocol/src/main/kotlin/model")
-    def csOutput = new File(rootDir, "src/dotnet/${DotnetPluginId}/Rider")
-    def ktOutput = new File(rootDir, "src/rider/main/kotlin/${RiderPluginId.replace('.','/').toLowerCase()}")
-
-    verbose = true
-    classpath {
-        "${rdLibDirectory()}/rider-model.jar"
-    }
-    sources "${modelDir}/rider"
-    hashFolder = "${buildDir}"
-    packages = "model.rider"
-
-    generator {
-        language = "kotlin"
-        transform = "asis"
-        root = "com.jetbrains.rider.model.nova.ide.IdeRoot"
-        namespace = "com.jetbrains.rider.model"
-        directory = "$ktOutput"
-    }
-
-    generator {
-        language = "csharp"
-        transform = "reversed"
-        root = "com.jetbrains.rider.model.nova.ide.IdeRoot"
-        namespace = "JetBrains.Rider.Model"
-        directory = "$csOutput"
-    }
 }
 
 patchPluginXml {
