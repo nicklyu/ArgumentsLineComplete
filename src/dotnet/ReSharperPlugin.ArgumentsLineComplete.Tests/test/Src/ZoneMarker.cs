@@ -7,24 +7,26 @@ using NUnit.Framework;
 
 [assembly : Apartment(System.Threading.ApartmentState.STA)]
 
-namespace ReSharperPlugin.ArgumentsLineComplete.Tests.test.Src;
-
-[ZoneDefinition]
-public class ArgumentLineCompletionTestZone : ITestsEnvZone
+namespace ReSharperPlugin.ArgumentsLineComplete.Tests.test.Src
 {
-}
 
-[ZoneActivator]
-public class PsiFeatureTestZoneActivator : IActivate<PsiFeatureTestZone>, IActivate<ArgumentsLineZoneDefinition>
-{
-}
+    [ZoneDefinition]
+    public class ArgumentLineCompletionTestZone : ITestsEnvZone
+    {
+    }
 
-[ZoneActivator]
-public class SinceClr4HostZoneActivator : IActivate<ISinceClr4HostZone>
-{
-}
+    [ZoneActivator]
+    public class PsiFeatureTestZoneActivator : IActivate<PsiFeatureTestZone>, IActivate<ArgumentsLineZoneDefinition>
+    {
+    }
 
-[SetUpFixture]
-public class PsiFeaturesTestEnvironmentAssembly : ExtensionTestEnvironmentAssembly<ArgumentLineCompletionTestZone>
-{
+    [ZoneActivator]
+    public class SinceClr4HostZoneActivator : IActivate<ISinceClr4HostZone>
+    {
+    }
+
+    [SetUpFixture]
+    public class PsiFeaturesTestEnvironmentAssembly : ExtensionTestEnvironmentAssembly<ArgumentLineCompletionTestZone>
+    {
+    }
 }

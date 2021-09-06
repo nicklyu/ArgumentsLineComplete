@@ -1,15 +1,11 @@
 <idea-plugin require-restart="true">
   <id>com.jetbrains.rider.plugins.argumentslinecomplete</id>
   <name>ArgumentsLineComplete</name>
-  <version>_PLACEHOLDER_</version>
-  <vendor url="https://project-url">Author</vendor>
-  <idea-version since-build="_PLACEHOLDER_" until-build="_PLACEHOLDER_" />
+  <vendor url="https://github.com/nicklyu/ArgumentsLineComplete">Nikita Lyubimov</vendor>
   <depends>com.intellij.modules.rider</depends>
 
   <description>
-<![CDATA[
-<p>Sample description</p>
-]]>
+    Plugin adding the ability to autocomplete all arguments from parameters and local variables
   </description>
 
 </idea-plugin>
