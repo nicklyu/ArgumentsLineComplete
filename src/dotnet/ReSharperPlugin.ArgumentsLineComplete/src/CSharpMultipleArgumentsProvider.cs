@@ -89,7 +89,7 @@ namespace ReSharperPlugin.ArgumentsLineComplete
                 var info = new TextualInfo(text, text) { Ranges = textLookupRanges };
                 info.Placement.Relevance |=
                     (ulong) (CLRLookupItemRelevance.NonStatic | CLRLookupItemRelevance.LocalVariablesAndParameters | CLRLookupItemRelevance.ExpectedTypeMatch)
-                    | (ulong) (LookupItemRelevance.NameCorrelation | LookupItemRelevance.HighSelectionPriority);
+                    | (ulong) (LookupItemRelevance.NameCorrelation | LookupItemRelevance.HighSelectionPriority | LookupItemRelevance.ExactMatch );
                 info.Placement.OrderString = $"_{index:D5}{info.Placement.OrderString}";
 
                 var item = LookupItemFactory.CreateLookupItem(info)
@@ -220,8 +220,7 @@ namespace ReSharperPlugin.ArgumentsLineComplete
             static IReadOnlyList<DeclaredElementInstance<IParametersOwner>> TryGetParametersFromIndexer([NotNull] IArgumentList argumentList, int argumentIndex)
             {
                 var elementAccessExpression = ElementAccessExpressionNavigator.GetByArgumentList(argumentList);
-                var qualifierExpression = elementAccessExpression?.ConditionalQualifier.GetOperandThroughParenthesis() as IBaseExpression;
-                if (qualifierExpression != null) return null;
+                if (elementAccessExpression?.ConditionalQualifier.GetOperandThroughParenthesis() is IBaseExpression) return null;
                 return elementAccessExpression != null ? FindNotMatchedParameters(elementAccessExpression, argumentIndex) : null;
             }
         }
