@@ -18,6 +18,10 @@ namespace ReSharperPlugin.ArgumentsLineComplete.Tests.test.Src
         [Test] public void TestBasicList1() => DoNamedTest();
         [Test] public void TestBasicList2() => DoNamedTest();
         [Test] public void TestBasicList3() => DoNamedTest();
+        [Test] public void TestCorrelationWithBase1() => DoNamedTest();
+        [Test] public void TestCorrelationWithBase2() => DoNamedTest();
+        [Test] public void TestObjectInitializer1() => DoNamedTest();
+        [Test] public void TestObjectInitializer2() => DoNamedTest();
     }
 
     [TestFixture]

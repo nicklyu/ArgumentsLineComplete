@@ -17,15 +17,18 @@
   <ItemGroup>
     <Compile Remove="test/**/*" />
     <Compile Include="test\data\completion\TestBasicList1.cs" />
+    <Compile Include="test\data\completion\TestCorrelationWithBase2.cs" />
+    <Compile Include="test\data\completion\TestObjectInitializer1.cs" />
+    <Compile Include="test\data\completion\TestObjectInitializer2.cs" />
     <Compile Include="test\Src\CSharpMultipleArgumentsTest.cs" />
     <Compile Include="test\Src\ZoneMarker.cs" />
     <None Include="test/**/*" />
-    <None Remove="test\data\**" />
-    <Compile Remove="test\data\**" />
+    <None Remove="test\data\completion\**" />
+    <Compile Remove="test\data\completion\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Remove="test\data\**" />
+    <EmbeddedResource Remove="test\data\completion\**" />
   </ItemGroup>
 
 </Project>

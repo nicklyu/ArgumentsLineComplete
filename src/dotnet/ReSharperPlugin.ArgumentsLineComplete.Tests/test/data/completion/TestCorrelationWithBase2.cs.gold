@@ -1,0 +1,121 @@
+﻿# 58 ITEMS #
+
+Equals    bool
+Foo
+Int32.MaxValue    int
+Int32.MinValue    int
+Int32.Parse    int
+Microsoft
+ReferenceEquals    bool
+System
++ arg1, arg2, arg3
++ arg1, arg2
++ arg1    int
+arg1:
++ arg2    int
+arg2:
++ arg3    int
+arg3:
++ arg4    int
+async
+bool
+byte
+char
+checked
+ctx    Current file context
+decimal
+default
+delegate
+double
+false
+float
+from    Language-Integrated Query
+global
+hal    ASP.NET MVC Html.ActionLink
+in
+int
+long
+nameof
+new
+nguid    Insert new GUID
+nint
+nuint
+null
+object
+out
+ref
+rta    ASP.NET Controller RedirectToAction
+sbyte
+short
+sizeof
+stackalloc
+static
+string
+true
+typeof
+ua    ASP.NET MVC Url.Action
+uint
+ulong
+unchecked
+ushort
+# AUTOMATIC #
+# 58 ITEMS #
+
+Equals    bool
+Foo
+Int32.MaxValue    int
+Int32.MinValue    int
+Int32.Parse    int
+Microsoft
+ReferenceEquals    bool
+System
++ arg1, arg2, arg3
++ arg1, arg2
++ arg1    int
+arg1:
++ arg2    int
+arg2:
++ arg3    int
+arg3:
++ arg4    int
+async
+bool
+byte
+char
+checked
+ctx    Current file context
+decimal
+default
+delegate
+double
+false
+float
+from    Language-Integrated Query
+global
+hal    ASP.NET MVC Html.ActionLink
+in
+int
+long
+nameof
+new
+nguid    Insert new GUID
+nint
+nuint
+null
+object
+out
+ref
+rta    ASP.NET Controller RedirectToAction
+sbyte
+short
+sizeof
+stackalloc
+static
+string
+true
+typeof
+ua    ASP.NET MVC Url.Action
+uint
+ulong
+unchecked
+ushort

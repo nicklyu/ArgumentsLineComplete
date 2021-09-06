@@ -56,6 +56,7 @@ namespace ReSharperPlugin.ArgumentsLineComplete
             
             var argumentIndex = argumentList.Arguments.IndexOf(argument);
             var overloads = GetAllSuitableParameters(argumentList, argumentIndex);
+            if (overloads == null) return false;
 
             var typeConversionRule = argumentList.GetTypeConversionRule();
 
@@ -134,9 +135,9 @@ namespace ReSharperPlugin.ArgumentsLineComplete
             return separator;
         }
 
-        private IReadOnlyList<string> CreateTextItems(IList<ISymbolInfo> argumentList,
-            IReadOnlyList<DeclaredElementInstance<IParametersOwner>> overloads, int argumentIndex,
-            ICSharpTypeConversionRule typeConversionRule, string separator)
+        private IReadOnlyList<string> CreateTextItems([NotNull] IList<ISymbolInfo> argumentList,
+            [NotNull] IReadOnlyList<DeclaredElementInstance<IParametersOwner>> overloads, int argumentIndex,
+            [NotNull] ICSharpTypeConversionRule typeConversionRule, string separator)
         {
             var result = new List<IReadOnlyList<string>>();
             var argumentNameToDeclaredElementMap = argumentList.ToDictionary(x => x.ShortName, x => x);
@@ -193,6 +194,7 @@ namespace ReSharperPlugin.ArgumentsLineComplete
         }
         
 
+        [CanBeNull]
         private IReadOnlyList<DeclaredElementInstance<IParametersOwner>> GetAllSuitableParameters(
             [NotNull] IArgumentList argumentList, int argumentIndex)
         {
@@ -211,9 +213,8 @@ namespace ReSharperPlugin.ArgumentsLineComplete
             
             static IReadOnlyList<DeclaredElementInstance<IParametersOwner>> TryGetParametersFromCtor([NotNull] IArgumentList argumentList, int argumentIndex)
             {
-                var constructorInitializer = ConstructorInitializerNavigator.GetByArgumentList(argumentList);
-                if (constructorInitializer == null) return null;
-                return constructorInitializer.Kind == ConstructorInitializerKind.UNKNOWN ? null : FindNotMatchedParameters(constructorInitializer, argumentIndex);
+                var objectCreationExpression = ObjectCreationExpressionNavigator.GetByArgumentList(argumentList);
+                return objectCreationExpression == null ? null : FindNotMatchedParameters(objectCreationExpression, argumentIndex);
             }
             
             static IReadOnlyList<DeclaredElementInstance<IParametersOwner>> TryGetParametersFromIndexer([NotNull] IArgumentList argumentList, int argumentIndex)
