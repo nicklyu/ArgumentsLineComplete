@@ -1,0 +1,125 @@
+﻿# 60 ITEMS #
+
+Boo
+Equals    bool
+Foo
+GetHashCode    int
+GetType    Type
+Int32.MaxValue    int
+Int32.MinValue    int
+Int32.Parse    int
+MemberwiseClone    object
+Microsoft
+ReferenceEquals    bool
+System
+ToString    string
++ arg1, arg2, arg3, arg4
++ arg1    int
+arg1:
+arg2    int
+arg2:
+arg3    int
+arg3:
+arg4    int
+arg4:
+async
+base
+bool
+byte
+char
+checked
+decimal
+default
+delegate
+double
+false
+float
+from
+global
+in
+int
+long
+nameof
+new
+nint
+nuint
+null
+object
+out
+ref
+sbyte
+short
+sizeof
+stackalloc
+static
+string
+this
+true
+typeof
+uint
+ulong
+unchecked
+ushort
+# AUTOMATIC #
+# 60 ITEMS #
+
+Boo
+Equals    bool
+Foo
+GetHashCode    int
+GetType    Type
+Int32.MaxValue    int
+Int32.MinValue    int
+Int32.Parse    int
+MemberwiseClone    object
+Microsoft
+ReferenceEquals    bool
+System
+ToString    string
++ arg1, arg2, arg3, arg4
++ arg1    int
+arg1:
+arg2    int
+arg2:
+arg3    int
+arg3:
+arg4    int
+arg4:
+async
+base
+bool
+byte
+char
+checked
+decimal
+default
+delegate
+double
+false
+float
+from
+global
+in
+int
+long
+nameof
+new
+nint
+nuint
+null
+object
+out
+ref
+sbyte
+short
+sizeof
+stackalloc
+static
+string
+this
+true
+typeof
+uint
+ulong
+unchecked
+ushort
