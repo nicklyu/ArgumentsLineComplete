@@ -64,8 +64,10 @@ namespace ReSharperPlugin.ArgumentsLineComplete
 
             var items = CreateTextItems(infos, overloads, argumentIndex, typeConversionRule, separator);
             if (items.Count == 0) return false;
+
+            var isLastArgument = IsLastArgumentInList(argument, argumentList);
             
-            var textLookupRanges = GetTextRanges(context, argumentList, referenceExpression);
+            var textLookupRanges = GetTextRanges(context, argumentList, referenceExpression, isLastArgument);
             if (textLookupRanges == null) return false;
 
             var lookupItems = CreateLookupItems(items, textLookupRanges);
@@ -102,9 +104,16 @@ namespace ReSharperPlugin.ArgumentsLineComplete
             }
         }
         
+        private static bool IsLastArgumentInList([NotNull] IArgumentInfo argument, [NotNull] IArgumentList argumentList)
+        {
+            var lastArgument = argumentList.Arguments.LastOrDefault();
+            return lastArgument != null && Equals(lastArgument, argument);
+        }
+
+        
         [CanBeNull]
-        private static TextLookupRanges GetTextRanges(
-            [NotNull] CSharpCodeCompletionContext context, [NotNull] ITreeNode argumentList, [NotNull] IExpression referenceExpression)
+        private static TextLookupRanges GetTextRanges([NotNull] CSharpCodeCompletionContext context,
+            [NotNull] ITreeNode argumentList, [NotNull] IExpression referenceExpression, bool isLastArgument)
         {
             var startOffset = context.TerminatedContext.ToOriginalTreeRange(new TreeTextRange(argumentList.GetTreeStartOffset()));
             var originalReferenceRange = context.TerminatedContext.ToDocumentRange(new TreeTextRange(referenceExpression.GetTreeStartOffset()));
@@ -113,7 +122,9 @@ namespace ReSharperPlugin.ArgumentsLineComplete
 
             var elementRange = originalReferenceRange.SetEndTo(DocumentOffset.Max(containingNode.GetDocumentEndOffset(), context.BasicContext.SelectedRange.EndOffset));
             var textLookupRanges = CodeCompletionContextProviderBase.GetTextLookupRanges(context.BasicContext, elementRange);
-            return textLookupRanges;
+            return !isLastArgument 
+                ? textLookupRanges.WithInsertRange(textLookupRanges.ReplaceRange)
+                : textLookupRanges;
         }
 
         [NotNull]
